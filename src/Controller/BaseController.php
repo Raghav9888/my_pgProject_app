@@ -17,6 +17,7 @@ class BaseController extends AbstractController
 
         return $this->render('base/'. $routeType.'.html.twig', [
             'site_meta_title_name' => $routeType,
+            'routeType' =>$routeType,
         ]);
     }
 }
