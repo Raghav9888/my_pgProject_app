@@ -10,14 +10,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BaseController extends AbstractController
 {
-    #[Route(path: '/{routeType}', name: 'app_home', requirements: ['routeType' => 'home|about|contactus'])]
-    public function home(Request $request, $routeType = 'index'): Response
+    #[Route(path: '/', name: 'app_index')]
+    public function index(): Response
+    {
+        return $this->render('base/index.html.twig', [
+
+        ]);
+    }
+
+    #[
+        Route(path: '/{routeType}', name: 'app_home', requirements: ['routeType' => 'home|about|contactus'])]
+    public function home(Request $request, $routeType = 'home'): Response
     {
 
-
-        return $this->render('base/'. $routeType.'.html.twig', [
+        return $this->render('base/' . $routeType . '.html.twig', [
             'site_meta_title_name' => $routeType,
-            'routeType' =>$routeType,
+            'routeType' => $routeType,
         ]);
     }
 }
