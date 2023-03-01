@@ -14,7 +14,6 @@ class BaseController extends AbstractController
     public function index(): Response
     {
         return $this->render('base/index.html.twig', [
-
         ]);
     }
 
