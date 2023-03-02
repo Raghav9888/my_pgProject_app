@@ -1,0 +1,13 @@
+.indexFirstRow {
+    background-color: #ffffff;
+    padding: 0;
+    overflow: hidden;
+}
+.index1{
+    padding: 0;
+    height: 50rem;
+}
+.textContainer{
+    display: flex;
+    align-items: center;
+}
