@@ -7,6 +7,11 @@
     padding: 0;
     height: 50rem;
 }
+@media(max-width: 740px) {
+    .index1{
+        height:30rem;
+    }
+}
 .textContainer{
     display: flex;
     align-items: center;
