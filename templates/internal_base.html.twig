@@ -3,9 +3,13 @@
 {% block body %}
 
     {% block NavBar %}
+        {{ include('navBar/navBar.html.twig') }}
     {% endblock %}
 
-    {% block pageContent %}
-    {% endblock %}
+    <div class="container-fluid">
+        {% block pageContent %}
+        {% endblock %}
+    </div>
+
 
 {% endblock %}

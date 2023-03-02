@@ -1,5 +1,13 @@
 {% extends 'internal_base.html.twig' %}
 
 {% block pageContent %}
+    <div id="indexPage"></div>
+{% endblock %}
 
+ {% block pageStylesheets %}
+     {{ encore_entry_link_tags('app/indexPage') }}
+ {% endblock %}
+
+{% block pageJavascripts %}
+    {{ encore_entry_script_tags('app/indexPage') }}
 {% endblock %}

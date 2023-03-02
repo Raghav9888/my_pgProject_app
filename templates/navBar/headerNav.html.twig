@@ -1,0 +1,45 @@
+<header class="section-header bg-light border-bottom ">
+    <section class="pt-2 px-2 ">
+        <div class="container-fluid header_container_fluid">
+            <div class="row gx-2 gy-lg-0 gy-3 align-items-center my-2">
+                <div class="col-sm-3 col-lg-4 float-start flex-md-grow-0">
+                    <a href="{{ path('app_index') }}"
+                       class="brand-wrap h3 me-3">
+                        The Test
+                    </a>
+                </div>
+
+                <div class="col-lg-4 col-md-5 col-sm-4 col-12 flex-grow-1  order-md-2">
+                    <div class="d-flex">
+                        <div class="input-group">
+                            <input type="search" id="navBarFilter" class="form-control "
+                                   placeholder="Search..." aria-label="Input group example"
+                                   aria-describedby="btnGroupAddon" style="margin: 0; ">
+                            <button id="NavBarSearchButton" class="btn btn-purple btn-filter">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                        <div class="btn-group ms-1">
+                            <button class="btn btn-secondary navBarFilter">
+                                <i class="fa fa-fw fa-filter"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col col-sm-3  col-lg-4  order-3 text-end ">
+                    {% if app.user or  is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <button class="navbar-toggler float-end" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasRight" aria-controls="offcanvasNavbar">
+                            <img src=""
+                                 class="img-thumbnail img-fluid rounded-circle" width="50"/>
+                        </button>
+                    {% else %}
+                        <a href="{{ path('app_login') }}"> Login </a>/
+                        <a href="{{ path('app_register') }}">Register</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</header>

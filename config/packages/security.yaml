@@ -1,4 +1,8 @@
 security:
+    role_hierarchy:
+        ROLE_SUPER_LICENSE: [ ROLE_LICENSE , ROLE_ADMIN ]
+        ROLE_LICENSE: [ ROLE_ADMIN ]
+        ROLE_ADMIN: [ ROLE_USER ]
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
@@ -31,8 +35,10 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+        - { path: ^/register, roles: PUBLIC_ACCESS }
+        - { path: ^/reset-password, roles: PUBLIC_ACCESS }
+#        - { path: ^/*, roles: ROLE_USER }
 
 when@test:
     security:

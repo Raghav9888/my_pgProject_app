@@ -14,15 +14,16 @@ class BaseController extends AbstractController
     public function index(): Response
     {
         return $this->render('base/index.html.twig', [
+            'currentRoute' => 'index'
         ]);
     }
 
-    #[
-        Route(path: '/{routeType}', name: 'app_home', requirements: ['routeType' => 'home|about|contactus'])]
-    public function home(Request $request, $routeType = 'home'): Response
+    #[Route(path: '/{routeType}', name: 'app_home', requirements: ['routeType' => 'home|about|contactus'])]
+    public function home(Request $request, $routeType): Response
     {
 
         return $this->render('base/' . $routeType . '.html.twig', [
+            'currentRoute'=> $routeType,
             'site_meta_title_name' => $routeType,
             'routeType' => $routeType,
         ]);
