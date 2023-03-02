@@ -2,10 +2,14 @@
     "devDependencies": {
         "@babel/core": "^7.17.0",
         "@babel/preset-env": "^7.16.0",
+        "@babel/preset-react": "^7.18.6",
         "@hotwired/stimulus": "^3.0.0",
+        "@popperjs/core": "^2.11.6",
         "@symfony/stimulus-bridge": "^3.2.0",
         "@symfony/webpack-encore": "^4.2.0",
+        "bootstrap": "^5.2.3",
         "core-js": "^3.23.0",
+        "jquery": "^3.6.3",
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.58.3",
         "sass-loader": "^13.2.0",
@@ -20,5 +24,11 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "animate.css": "^4.1.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "slick-carousel": "^1.8.1"
     }
 }
