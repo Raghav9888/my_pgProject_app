@@ -35,8 +35,8 @@
                                  class="img-thumbnail img-fluid rounded-circle" width="50"/>
                         </button>
                     {% else %}
-                        <a href="{{ path('app_login') }}"> Login </a>/
-                        <a href="{{ path('app_register') }}">Register</a>
+                        <a href="{{ path('app_login',{'routeType':'login'}) }}"> Login </a>/
+                        <a href="{{ path('app_register',,{'routeType':'register'}) }}">Register</a>
                     {% endif %}
                 </div>
             </div>
