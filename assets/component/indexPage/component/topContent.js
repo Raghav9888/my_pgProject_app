@@ -8,7 +8,7 @@ export default function topContent()
         <div className='row indexFirstRow'>
             <img src={index1} className="img-fluid index1 animate__animated animate__fadeIn animate__faster" alt={index1}
             />
-            <div className="col-md-6 textContainer animate__animated animate__fadeInLeft animate__delay-2s">
+            <div className="col-md-6 textContainer animate__animated animate__fadeInRight animate__delay-1s">
                 <div className="container">
                     <h4>What is Lorem Ipsum?</h4>
                     <p>
@@ -23,13 +23,13 @@ export default function topContent()
                     </p>
                 </div>
             </div>
-            <div className="col-md-6 animate__animated animate__fadeInRight animate__delay-2s">
+            <div className="col-md-6 animate__animated animate__fadeInLeft  animate__delay-2s">
                 <img src={index2} className="img-fluid index2" alt={index2}/>
             </div>
-            <div className="col-md-6 animate__animated animate__fadeInLeft animate__delay-3s">
+            <div className="col-md-6 animate__animated animate__fadeInRight  animate__delay-3s">
                 <img src={index3} className="img-fluid index2" alt={index3}/>
             </div>
-            <div className="col-md-6 textContainer animate__animated animate__fadeInRight animate__delay-3s ">
+            <div className="col-md-6 textContainer animate__animated animate__fadeInLeft animate__delay-4s ">
                 <div className="container" >
                     <h4>What is Lorem Ipsum?</h4>
                     <p>
