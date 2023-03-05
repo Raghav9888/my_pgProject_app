@@ -1,5 +1,4 @@
 // this code use for when refresh the page scroll bar on top
-
 history.scrollRestoration = 'manual';
 
 if (history.scrollRestoration) {
