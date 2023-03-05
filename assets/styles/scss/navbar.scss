@@ -1,0 +1,25 @@
+.navbar{
+  background-color:#602fec;
+}
+
+@media (min-width: 950px) {
+  #collapsLinks{
+    justify-content: center;
+  }
+}
+.brand-wrap{
+  display: block;
+}
+.navbar-toggler{
+  display: block;
+}
+@media (max-width: 950px) {
+  .brand-wrap{
+    display: none;
+  }
+}
+@media(min-width: 950px){
+  .navbar-toggler{
+    display: none;
+  }
+}

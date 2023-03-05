@@ -13,19 +13,25 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('css/app') }}
         {% endblock %}
+    </title>
 
         {% block javascripts %}
             {{ encore_entry_script_tags('js/app') }}
         {% endblock %}
 
-        {% block pageStylesheets %}
-        {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app/js') }}
+    {% endblock %}
 
-        {% block pageJavascripts %}
-        {% endblock %}
+    {% block pageStylesheets %}
+    {% endblock %}
 
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+    {% block pageJavascripts %}
+    {% endblock %}
+
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
 </html>
+
