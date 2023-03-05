@@ -1,24 +1,4 @@
 @import "bootstrap";
 @import 'animate.css';
 @import '~@fortawesome/fontawesome-free/css/all.css';
-.d-sm-hidden{
-  display: block;
-}
-.d-lg-hidden{
-  display: block;
-}
-
-
-@media (max-width:980px) {
-  .d-sm-hidden{
-    display: none;
-  }
-}
-@media (min-width: 980px) {
-  .d-lg-hidden{
-    display: none;
-  }
-  #collapseNavLink{
-    justify-content: center;
-  }
-}
+@import "defaultDesign";
