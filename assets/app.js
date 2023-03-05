@@ -9,4 +9,5 @@
 console.log('Hello Webpack Encore!');
 // start the Stimulus application
 import './bootstrap';
+import './styles/js/script';
 require('bootstrap');

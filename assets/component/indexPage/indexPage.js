@@ -1,6 +1,7 @@
-import React, {useRef} from 'react';
+import React from 'react';
 import TopContent from "./component/topContent";
 import CrouselContent from "./component/crouselContent";
+import LicenseContent from "./component/license";
 
 
 function onclick() {
@@ -20,6 +21,7 @@ export default function App() {
     return (
         <React.Fragment>
             <TopContent/>
+            <LicenseContent/>
             <CrouselContent/>
         </React.Fragment>
 
