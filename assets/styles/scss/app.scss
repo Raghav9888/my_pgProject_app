@@ -2,3 +2,9 @@
 @import 'animate.css';
 @import '~@fortawesome/fontawesome-free/css/all.css';
 @import "defaultDesign";
+ul li {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}

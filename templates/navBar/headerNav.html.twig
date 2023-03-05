@@ -1,9 +1,9 @@
-<header class="section-header bg-light border-bottom">
+<header class="section-header border-y">
         <div class="container-fluid header_container_fluid">
             <div class="row align-items-center my-2">
-                <div class="col-2 col-md-4 px-0">
-                    <a href="{{ path('app_index') }}" class="h3 d-sm-hidden">
-                        The Test
+                <div class="col-1 col-md-4 px-2">
+                    <a href="{{ path('app_index') }}" class=" navbar-brand d-sm-hidden">
+                        <i class="fa-regular fa-registered"></i> Royal Reside
                     </a>
                     <button class="navbar-toggler d-lg-hidden"  data-bs-toggle="collapse"
                             data-bs-target="#collapseNavLink"
@@ -13,7 +13,7 @@
                     </button>
                 </div>
 
-                <div class="col-6 col-md-4 d-flex px-0">
+                <div class="col-7 col-md-4 d-flex px-0">
                     <div class="input-group">
                         <input type="search" id="navBarFilter" class="form-control "
                                placeholder="Search..." aria-label="Input group example"
@@ -37,8 +37,8 @@
                                  class="img-thumbnail img-fluid rounded-circle" width="50"/>
                         </button>
                     {% else %}
-                        <a href="{{ path('app_login') }}"> Login </a>/
-                        <a href="{{ path('app_register') }}">Register</a>
+                        <a href="{{ path('app_login') }}" class="pe-1"> Login </a>/
+                        <a href="{{ path('app_register') }}" class="pe-1">Register</a>
                     {% endif %}
                 </div>
             </div>

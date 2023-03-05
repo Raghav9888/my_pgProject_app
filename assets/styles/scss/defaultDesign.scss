@@ -1,3 +1,10 @@
+// header Navbar css start
+.border-y{
+  border-top: 2px solid #602fec;
+  border-bottom: 2px solid #602fec;
+  margin-bottom: 1px;
+}
+// header Navbar css end
 // Navbar logo hidden an show css start
 .navbar{
   background-color:#602fec;
@@ -9,7 +16,6 @@
 .d-lg-hidden{
   display: block;
 }
-
 
 @media (max-width:980px) {
   .d-sm-hidden{
@@ -35,7 +41,7 @@
   clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) , url('../../../public/image/front_look/front.jpg') no-repeat fixed center;
   background-size: cover;
-  margin-top: 8rem;
+  margin-top: 3rem;
 }
 .text1 {
   font-size: 5rem;
@@ -45,7 +51,7 @@
   padding: 1rem;
   text-align: center;
   opacity: .8;
-  margin-top: 3rem;
+  margin-top: 8rem;
 }
 
 #text2 {
@@ -60,20 +66,47 @@
   margin-top: 1rem;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 450px) {
   #head {
-    height: 31rem;
+    height: 20rem;
   }
 
   #text1 {
     margin-left: 0;
-    font-size: 7rem;
-    width: 44rem
+    font-size: 2rem;
+    width: 20rem;
   }
   #text2 {
     margin-left: 0;
-    font-size: 50px;
+    font-size: 20px;
+    width: 20rem;
+  }
+}
+@media (max-width: 912px) {
+  #head {
+    height: 40rem;
+  }
+  #text1 {
+    margin-left: 0;
+    font-size: 40px;
+    margin-top: 16rem;
+    width: 40rem;
+  }
+  #text2 {
+    margin-left: 0;
+    font-size: 40px;
     width: 40rem;
   }
 }
 // pageContent polygon css end
+
+//  license css start
+
+.title{
+  text-align: center;
+}
+ul .list{
+  list-style: disc;
+}
+
+//  license css end
