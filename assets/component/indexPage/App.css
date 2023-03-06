@@ -3,7 +3,8 @@
     padding: 0;
     overflow: hidden;
 }
-.index-bg-img{
+
+.index-bg-img {
     height: 100vh;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -11,21 +12,37 @@
     background-size: cover;
     background-image: url('./image/index.jpg');
 }
-.index1{
+
+.index1 {
     padding: 0;
     height: 800px;
 }
-@media  (max-width: 980px){
-   .index1{
-       height: 250px;
-   }
-}
-@media(max-width: 740px) {
-    .index1{
-        height:30rem;
+
+@media (max-width: 980px) {
+    .index1 {
+        height: 250px;
     }
 }
-.textContainer{
+
+@media (max-width: 740px) {
+    .index1 {
+        height: 30rem;
+    }
+}
+
+.textContainer {
     display: flex;
     align-items: center;
 }
+
+/*//  license css start*/
+
+.title {
+    text-align: center;
+}
+
+ul .listText {
+    list-style: disc;
+}
+
+/*//  license css end*/
