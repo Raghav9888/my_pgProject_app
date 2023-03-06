@@ -10,32 +10,27 @@ export default function license() {
                         <div className="card-body">
                             <h2 className="title">Standard Support</h2>
                             <ul className="icons-ul" style={{listStyleType: "square"}}>
-                                <li className="listText">Support for 1 year</li>
-                                <li className="listText"> 8-hour initial response time</li>
-                                <li className="listText"> Support language available: English</li>
-                                <li className="listText"> 8/5 response for high-impact issues</li>
-                                <li className="listText">Unlimited access to support</li>
-                                <li className="listText">Unlimited ticketing management</li>
-                                <li className="listText">Billing Support</li>
-                                <li className="listText">License support</li>
+                                <li className="listText">7 days Free trial</li>
                             </ul>
+                            <div className="text-center">
+                                <a href="#" className="btn btn-outline-primary">Activate</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-3">
                     <div className="card animate__animated animate__fadeInRight animate__delay-4s">
                         <div className="card-body">
-                            <h2 className="title">Standard Support</h2>
+                            <h2 className="title">Basic Support</h2>
                             <ul className="icons-ul" style={{listStyleType: "square"}}>
-                                <li className="listText">Support for 1 year</li>
-                                <li className="listText"> 8-hour initial response time</li>
+                                <li className="listText"> Support for 3 month</li>
+                                <li className="listText">3 month memberShip</li>
                                 <li className="listText"> Support language available: English</li>
-                                <li className="listText"> 8/5 response for high-impact issues</li>
-                                <li className="listText">Unlimited access to support</li>
-                                <li className="listText">Unlimited ticketing management</li>
-                                <li className="listText">Billing Support</li>
                                 <li className="listText">License support</li>
                             </ul>
+                            <div className="text-center">
+                                <a href="#" className="btn btn-outline-primary">Purchase</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,18 +39,11 @@ export default function license() {
                         <div className="card-body">
                             <h2 className="title">Premium Support</h2>
                             <ul className="icons-ul" style={{listStyleType: "square"}}>
-                                <li className="listText"> Support for 1 year</li>
-                                <li className="listText"> 4-hour initial response time</li>
-                                <li className="listText"> Support language available: English, Dutch, German, Spanish
+                                <li className="listText"> Support for 6 month</li>
+                                <li className="listText"> Support language available: English, One Add More
                                 </li>
-                                <li className="listText"> 24/7 response for high &amp; critical-impact issues</li>
-                                <li className="listText"> Online training</li>
-                                <li className="listText"> Technical support escalations</li>
-                                <li className="listText"> Unlimited access to support</li>
-                                <li className="listText"> Unlimited ticketing management</li>
-                                <li className="listText">License support</li>
-                                <li className="listText">Billing Support</li>
-                                <li className="listText"> Backup &amp; Data recovery</li>
+                                <li className="listText"> Add logo and title Change</li>
+                                <li className="listText"> Live chat Support</li>
                             </ul>
                             <div className="text-center">
                                 <a href="#" className="btn btn-outline-primary">Purchase</a>
@@ -69,17 +57,12 @@ export default function license() {
                             <h2 className="title">Advanced Support</h2>
                             <ul className="icons-ul" style={{listStyleType: "square"}}>
                                 <li className="listText"> Support for 1 year</li>
-                                <li className="listText"> 4-hour initial response time</li>
-                                <li className="listText"> Support language available: English, Dutch, German, Spanish
+                                <li className="listText"> Support language available: English, Dutch, German, Spanish,
+                                    One Add More
                                 </li>
-                                <li className="listText"> 24/7 response for high &amp; critical-impact issues</li>
-                                <li className="listText"> Online training</li>
-                                <li className="listText"> Technical support escalations</li>
-                                <li className="listText"> Unlimited access to support</li>
-                                <li className="listText"> Unlimited ticketing management</li>
+                                <li className="listText"> Add logo and title Change</li>
+                                <li className="listText"> Live chat Support</li>
                                 <li className="listText">License support</li>
-                                <li className="listText">Billing Support</li>
-                                <li className="listText"> Backup &amp; Data recovery</li>
                             </ul>
                             <div className="text-center">
                                 <a href="#" className="btn btn-outline-primary">Purchase</a>
