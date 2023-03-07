@@ -28,6 +28,7 @@
     },
     "dependencies": {
         "animate.css": "^4.1.1",
+        "bootbox": "^6.0.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "slick-carousel": "^1.8.1"
