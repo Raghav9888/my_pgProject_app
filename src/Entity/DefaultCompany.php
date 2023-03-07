@@ -5,7 +5,7 @@ namespace App\Entity;
 use App\Repository\DefaultCompanyRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
-
+#[ORM\Table(name: 'default_company')]
 #[ORM\Entity(repositoryClass: DefaultCompanyRepository::class)]
 class DefaultCompany
 {

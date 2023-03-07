@@ -4,7 +4,8 @@ namespace App\Entity;
 
 use App\Repository\UserInformationRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
+
+#[ORM\Table(name: 'user_information')]
 #[ORM\Index(columns: ['id'], name: 'index_id')]
 #[ORM\Entity(repositoryClass: UserInformationRepository::class)]
 class UserInformation extends AbstractEntity
