@@ -15,6 +15,9 @@ class UserInformation extends AbstractEntity
     #[ORM\OneToOne(mappedBy: 'userInformation', cascade: ['persist', 'remove'])]
     private ?USer $uSer = null;
 
+    #[ORM\OneToOne(mappedBy: 'userInformation', cascade: ['persist', 'remove'])]
+    private ?User $user = null;
+
     /**
      * @return string|null
      */
@@ -29,6 +32,28 @@ class UserInformation extends AbstractEntity
     public function setSetting(?string $setting): void
     {
         $this->setting = $setting;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($user === null && $this->user !== null) {
+            $this->user->setUserInformation(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($user !== null && $user->getUserInformation() !== $this) {
+            $user->setUserInformation($this);
+        }
+
+        $this->user = $user;
+
+        return $this;
     }
 
 
