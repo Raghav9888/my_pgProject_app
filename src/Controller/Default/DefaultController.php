@@ -9,10 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-    #[Route('/bootboxHelper', name: 'app_helper')]
+    #[Route('/registerHelper', name: 'app_registerHelper')]
     public function bootboxHelper(): Response
     {
-
         return $this->render('default/bootbox/registerHelper.html.twig');
     }
 }
