@@ -17,6 +17,10 @@ class OwnerInformation extends AbstractEntity
     #[ORM\JoinColumn(nullable: false)]
     private ?DefaultCompany $defaultCompany = null;
 
+    #[ORM\OneToOne(inversedBy: 'ownerInformation', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?CompanyInformation $companyInformation = null;
+
     public function getUser(): ?User
     {
         return $this->user;
@@ -47,6 +51,18 @@ class OwnerInformation extends AbstractEntity
     public function setDefaultCompany(DefaultCompany $defaultCompany): self
     {
         $this->defaultCompany = $defaultCompany;
+
+        return $this;
+    }
+
+    public function getCompanyInformation(): ?CompanyInformation
+    {
+        return $this->companyInformation;
+    }
+
+    public function setCompanyInformation(CompanyInformation $companyInformation): self
+    {
+        $this->companyInformation = $companyInformation;
 
         return $this;
     }
