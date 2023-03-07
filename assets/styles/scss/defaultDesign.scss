@@ -68,7 +68,7 @@
 
 @media (max-width: 450px) {
   #head {
-    height: 20rem;
+    height: 50vh;
   }
 
   #text1 {
@@ -78,24 +78,24 @@
   }
   #text2 {
     margin-left: 0;
-    font-size: 20px;
-    width: 20rem;
+    font-size: 18px;
+    width: 19rem;
   }
 }
-@media (max-width: 912px) {
+@media only screen and (max-width: 912px) and (min-width: 450px)  {
   #head {
-    height: 40rem;
+    height: 35vh;
   }
   #text1 {
     margin-left: 0;
     font-size: 40px;
-    margin-top: 16rem;
-    width: 40rem;
+    margin-top: 6rem;
+    width: 26rem;
   }
   #text2 {
     margin-left: 0;
-    font-size: 40px;
-    width: 40rem;
+    font-size: 26px;
+    width: 25rem;
   }
 }
 // pageContent polygon css end
