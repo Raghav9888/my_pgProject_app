@@ -16,6 +16,11 @@ class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        if ($options['pgDetails']) {
+            $builder
+                ->add('pgDetails', O::class,['ownerInformation' => true]);
+        }
+
         $builder
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
