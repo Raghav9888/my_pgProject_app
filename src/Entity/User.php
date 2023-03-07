@@ -36,6 +36,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private bool $isVerified = false;
 
+    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?OwnerInformation $ownerInformation = null;
+
+    
+
     public function getId(): ?string
     {
         return $this->id;
@@ -112,6 +117,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    public function getOwnerInformation(): ?OwnerInformation
+    {
+        return $this->ownerInformation;
+    }
+
+    public function setOwnerInformation(?OwnerInformation $ownerInformation): self
+    {
+        $this->ownerInformation = $ownerInformation;
+
+        return $this;
+    }
+
+    public function getUserInformation(): ?UserInformation
+    {
+        return $this->userInformation;
+    }
+
+    public function setUserInformation(?UserInformation $userInformation): self
+    {
+        $this->userInformation = $userInformation;
 
         return $this;
     }
