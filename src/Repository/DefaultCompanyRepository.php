@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\DefaultText;
+use App\Entity\DefaultCompany;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<DefaultText>
+ * @extends ServiceEntityRepository<DefaultCompany>
  *
- * @method DefaultText|null find($id, $lockMode = null, $lockVersion = null)
- * @method DefaultText|null findOneBy(array $criteria, array $orderBy = null)
- * @method DefaultText[]    findAll()
- * @method DefaultText[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method DefaultCompany|null find($id, $lockMode = null, $lockVersion = null)
+ * @method DefaultCompany|null findOneBy(array $criteria, array $orderBy = null)
+ * @method DefaultCompany[]    findAll()
+ * @method DefaultCompany[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DefaultTextRepository extends ServiceEntityRepository
+class DefaultCompanyRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, DefaultText::class);
+        parent::__construct($registry, DefaultCompany::class);
     }
 
-    public function save(DefaultText $entity, bool $flush = false): void
+    public function save(DefaultCompany $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class DefaultTextRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(DefaultText $entity, bool $flush = false): void
+    public function remove(DefaultCompany $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class DefaultTextRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return DefaultText[] Returns an array of DefaultText objects
+//     * @return DefaultCompany[] Returns an array of DefaultCompany objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class DefaultTextRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?DefaultText
+//    public function findOneBySomeField($value): ?DefaultCompany
 //    {
 //        return $this->createQueryBuilder('d')
 //            ->andWhere('d.exampleField = :val')

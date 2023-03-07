@@ -2,22 +2,24 @@
 
 namespace App\Entity;
 
-use App\Repository\DefaultTextRepository;
+use App\Repository\DefaultCompanyRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ORM\Entity(repositoryClass: DefaultTextRepository::class)]
-class DefaultText
+#[ORM\Entity(repositoryClass: DefaultCompanyRepository::class)]
+class DefaultCompany
 {
     #[ORM\Column(type: 'guid')]
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'CUSTOM')]
     #[ORM\CustomIdGenerator('doctrine.uuid_generator')]
     #[Groups(['read'])]
+
     private ?string $id = null;
 
-    #[ORM\OneToOne(mappedBy: 'defaultText', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'defaultCompany', cascade: ['persist', 'remove'])]
     private ?OwnerInformation $ownerInformation = null;
+
     public function getId(): ?string
     {
         return $this->id;
@@ -31,13 +33,12 @@ class DefaultText
     public function setOwnerInformation(OwnerInformation $ownerInformation): self
     {
         // set the owning side of the relation if necessary
-        if ($ownerInformation->getDefaultText() !== $this) {
-            $ownerInformation->setDefaultText($this);
+        if ($ownerInformation->getDefaultCompany() !== $this) {
+            $ownerInformation->setDefaultCompany($this);
         }
 
         $this->ownerInformation = $ownerInformation;
 
         return $this;
     }
-
 }

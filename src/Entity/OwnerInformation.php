@@ -9,24 +9,13 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: OwnerInformationRepository::class)]
 class OwnerInformation extends AbstractEntity
 {
-    #[ORM\OneToOne(inversedBy: 'ownerInformation', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?DefaultText $defaultText = null;
 
     #[ORM\OneToOne(mappedBy: 'ownerInformation', cascade: ['persist', 'remove'])]
     private ?User $user = null;
 
-    public function getDefaultText(): ?DefaultText
-    {
-        return $this->defaultText;
-    }
-
-    public function setDefaultText(DefaultText $defaultText): self
-    {
-        $this->defaultText = $defaultText;
-
-        return $this;
-    }
+    #[ORM\OneToOne(inversedBy: 'ownerInformation', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?DefaultCompany $defaultCompany = null;
 
     public function getUser(): ?User
     {
@@ -46,6 +35,18 @@ class OwnerInformation extends AbstractEntity
         }
 
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getDefaultCompany(): ?DefaultCompany
+    {
+        return $this->defaultCompany;
+    }
+
+    public function setDefaultCompany(DefaultCompany $defaultCompany): self
+    {
+        $this->defaultCompany = $defaultCompany;
 
         return $this;
     }
