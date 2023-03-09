@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
 use App\Security\SecurityAuthenticator;
+use App\Service\RegisterHelper;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,10 +29,10 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register/{registerType}', name: 'app_register', requirements: ['registerType' => 'user|admin'])]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, SecurityAuthenticator $securityAuthenticator, UserAuthenticatorInterface $userAuthenticator, $registerType, $routeType = 'register'): Response
+    public function register(Request $request, RegisterHelper $registerHelper, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, SecurityAuthenticator $securityAuthenticator, UserAuthenticatorInterface $userAuthenticator, $registerType, $routeType = 'register'): Response
     {
         if ($this->getUser()) {
-            return $this->redirectToRoute('app_home',['routeType' => 'home']);
+            return $this->redirectToRoute('app_home', ['routeType' => 'home']);
         }
 
         $user = new User();
@@ -43,6 +44,13 @@ class RegistrationController extends AbstractController
 
         $form = $this->createForm(RegistrationFormType::class, $user, $formType);
         $form->handleRequest($request);
+
+        $formData = $form->getData();
+        if ($registerType != 'user') {
+            $registerHelper->registerCompany($formData, $user,$request);
+        } else {
+            $registerHelper->registerUser($formData, $user ,$request);
+        }
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password

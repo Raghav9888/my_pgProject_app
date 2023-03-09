@@ -3,7 +3,12 @@ namespace App\Service;
 
 class Session
 {
-    public function session($user, $request):void
+    public function setCompanySession($user, $request):void
+    {
+
+    }
+
+    public function setUserSession($user, $request):void
     {
 
     }
