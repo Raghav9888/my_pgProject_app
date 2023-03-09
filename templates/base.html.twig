@@ -10,6 +10,10 @@
         {% endblock %}
     </title>
 
+
+{#    <link rel="icon" type="image/x-icon" href="{{ company.companyLogo  != 'null' ? asset( 'uploads/PgLogo/' ~ company.companyLogo) : asset('image/logo/logo.png')   }}">#}
+    <link rel="icon" type="image/x-icon" href="{{  asset('image/logo/logo.png')   }}">
+
     {% block stylesheets %}
         {{ encore_entry_link_tags('css/app') }}
     {% endblock %}
