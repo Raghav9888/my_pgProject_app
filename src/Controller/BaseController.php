@@ -11,10 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class BaseController extends AbstractController
 {
     #[Route(path: '/', name: 'app_index')]
-    public function index(): Response
+    public function index(Request $request): Response
     {
+
+        $siteName = $request->getSession()->get('siteName');
         return $this->render('base/index.html.twig', [
-            'currentRoute' => 'index'
+            'currentRoute' => 'index',
+            'siteName' => $siteName,
         ]);
     }
 
@@ -23,7 +26,7 @@ class BaseController extends AbstractController
     {
 
         return $this->render('base/' . $routeType . '.html.twig', [
-            'currentRoute'=> $routeType,
+            'currentRoute' => $routeType,
             'site_meta_title_name' => $routeType,
             'routeType' => $routeType,
         ]);

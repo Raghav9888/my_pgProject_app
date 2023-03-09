@@ -46,12 +46,11 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         $formData = $form->getData();
-        $ownerInformation='';
-        $userInformation = $form['userInformation']->getData();
+
         if ($registerType != 'user') {
-            $registerHelper->registerCompany($formData,$ownerInformation ,$user,$request);
+            $registerHelper->registerCompany($formData,$registerType ,$user,$request);
         } else {
-            $registerHelper->registerUser($formData,$userInformation, $user ,$request);
+            $registerHelper->registerUser($formData,$registerType,$user ,$request);
         }
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -85,6 +84,7 @@ class RegistrationController extends AbstractController
             'site_meta_title_name' => $routeType,
             'routeType' => $routeType,
             'registerType' => $registerType,
+            'siteName' => 'Royal Reside',
         ]);
     }
 

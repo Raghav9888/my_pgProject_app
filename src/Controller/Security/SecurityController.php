@@ -26,6 +26,7 @@ class SecurityController extends AbstractController
             'error' => $error,
             'site_meta_title_name' => $routeType,
             'routeType' => $routeType,
+            'siteName' => 'Royal Reside',
         ]);
     }
 
