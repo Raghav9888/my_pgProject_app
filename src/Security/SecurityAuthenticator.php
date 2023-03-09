@@ -45,15 +45,19 @@ class SecurityAuthenticator extends AbstractLoginFormAuthenticator
     {
         $user = $token->getUser();
 
+        if ($user->getAccountType()!='user'){
+            $this->session->setCompanySession($user, $request);
+        }else{
+            $this->session->setUserSession($user, $request);
+        }
 
-        $this->session->setSession($user, $request);
 
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
 
-        if($token->get)
-         return new RedirectResponse($this->urlGenerator->generate('app_home' ,['routeType' => 'home']));
+
+            return new RedirectResponse($this->urlGenerator->generate('app_home', ['routeType' => 'home']));
     }
 
     protected function getLoginUrl(Request $request): string

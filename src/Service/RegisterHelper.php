@@ -13,7 +13,7 @@ class RegisterHelper
 
     }
 
-    public function registerCompany($userData, $ownerInformation, $user, $request): void
+    public function registerCompany($userData,$registerType, $user, $request): void
     {
         $date = new DateTime();
         $userData->setIsCreatedAt($date);
@@ -21,14 +21,18 @@ class RegisterHelper
         $this->session->setCompanySession($user, $request);
     }
 
-    public function registerUser($userData, $userInformation, $user, $request): void
+    public function registerUser($userData,$registerType, $user, $request): void
     {
         $date = new DateTime();
 //        user entity
         $userData->setIsCreatedAt($date);
+        $userData->setAccountType($registerType);
 
 //        userInformation entity
+       $userInformation = $userData->getUserInformation();
         $userInformation->setIsCreatedAt($userData->getIsCreatedAt());
+        $userInformation->setAccountType($registerType);
+
 
 
         $this->session->setUserSession($user, $request);

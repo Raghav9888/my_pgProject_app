@@ -11,5 +11,6 @@ class Session
     public function setUserSession($user, $request):void
     {
 
+        $request->getSession()->set('siteName', 'Royal Reside');
     }
 }
