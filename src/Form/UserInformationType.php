@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\CompanyInformation;
 use App\Entity\UserInformation;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -31,6 +32,13 @@ class UserInformationType extends AbstractType
                     'other' => 'other',
                 ],
                 'preferred_choices' => ['male', 'female'],
+            ])
+
+            ->add('userNumber', TextType::class,[
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Number'
+                ],
             ])
 
             ;

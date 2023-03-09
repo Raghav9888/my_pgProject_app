@@ -3,12 +3,13 @@
 namespace App\Entity;
 
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\MappedSuperclass]
 #[ORM\HasLifecycleCallbacks]
-abstract class AbstractNameEntity extends AbstractCreatedEntity
+abstract class AbstractNameEntity
 {
 
     #[ORM\Column(type: 'guid')]
@@ -30,6 +31,18 @@ abstract class AbstractNameEntity extends AbstractCreatedEntity
 
     #[ORM\Column]
     protected string $accountType ;
+
+
+    #[ORM\Column(type: 'boolean' ,options: ['default' => 0] )]
+    protected  bool $isDeleted = false;
+    #[ORM\Column(type: 'datetime')]
+    protected DateTime $isCreatedAt;
+
+    #[ORM\Column(type: 'datetime' , nullable: true)]
+    protected DateTime $isUpdatedAt ;
+
+    #[ORM\Column(type: 'datetime' , nullable: true)]
+    protected DateTime $isDeletedAt ;
 
     public function getId(): ?string
     {

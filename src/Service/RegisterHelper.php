@@ -13,27 +13,20 @@ class RegisterHelper
 
     }
 
-    public function registerCompany($userData,$registerType, $user, $request): void
-    {
-        $date = new DateTime();
-        $userData->setIsCreatedAt($date);
 
-        $this->session->setCompanySession($user, $request);
-    }
-
-    public function registerUser($userData,$registerType, $user, $request): void
+    public function setRegister($userData, $userInformation, $defaultCompany, $registerType, $user, $request): void
     {
         $date = new DateTime();
 //        user entity
         $userData->setIsCreatedAt($date);
         $userData->setAccountType($registerType);
-
 //        userInformation entity
-       $userInformation = $userData->getUserInformation();
-        $userInformation->setIsCreatedAt($userData->getIsCreatedAt());
+        $userInformation->setIsCreatedAt($date);
         $userInformation->setAccountType($registerType);
-
-
+//        DefaultCompany entity
+        $defaultCompany->setAccountType($registerType);
+        $defaultCompany->setTitle('Royal Reside');
+        $defaultCompany->setCompanyLogo('logo.png');
 
         $this->session->setUserSession($user, $request);
     }

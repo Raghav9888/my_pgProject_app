@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'login_user')]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-class User  extends AbstractCreatedEntity implements UserInterface, PasswordAuthenticatedUserInterface
+class User  implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Column(type: 'guid')]
     #[ORM\Id]
@@ -42,11 +42,10 @@ class User  extends AbstractCreatedEntity implements UserInterface, PasswordAuth
     #[ORM\Column(type: 'boolean')]
     private bool $isVerified = false;
 
-    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
-    private ?OwnerInformation $ownerInformation = null;
-
-    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'yes', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
     private ?UserInformation $userInformation = null;
+
 
     public function getId(): ?string
     {
@@ -160,27 +159,17 @@ class User  extends AbstractCreatedEntity implements UserInterface, PasswordAuth
         return $this;
     }
 
-    public function getOwnerInformation(): ?OwnerInformation
-    {
-        return $this->ownerInformation;
-    }
-
-    public function setOwnerInformation(?OwnerInformation $ownerInformation): self
-    {
-        $this->ownerInformation = $ownerInformation;
-
-        return $this;
-    }
-
     public function getUserInformation(): ?UserInformation
     {
         return $this->userInformation;
     }
 
-    public function setUserInformation(?UserInformation $userInformation): self
+    public function setUserInformation(UserInformation $userInformation): self
     {
         $this->userInformation = $userInformation;
 
         return $this;
     }
+
+
 }

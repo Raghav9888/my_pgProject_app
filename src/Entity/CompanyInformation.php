@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Index(columns: ['id'], name: 'index_id')]
 #[ORM\Entity(repositoryClass: CompanyInformationRepository::class)]
-class CompanyInformation extends AbstractCreatedEntity
+class CompanyInformation
 {
     #[ORM\Column(type: 'guid')]
     #[ORM\Id]
@@ -45,9 +45,8 @@ class CompanyInformation extends AbstractCreatedEntity
     #[ORM\Column]
     private string  $country = 'IN';
 
-
     #[ORM\OneToOne(mappedBy: 'companyInformation', cascade: ['persist', 'remove'])]
-    private ?OwnerInformation $ownerInformation = null;
+    private ?UserInformation $userInformation = null;
 
     public function getId(): ?string
     {
@@ -198,38 +197,26 @@ class CompanyInformation extends AbstractCreatedEntity
         $this->country = $country;
     }
 
-    /**
-     * @return DateTime
-     */
-    public function getIsCreatedAt(): DateTime
+
+    public function getUserInformation(): ?UserInformation
     {
-        return $this->isCreated;
+        return $this->userInformation;
     }
 
-    /**
-     * @param DateTime $isCreated
-     */
-    public function setIsCreatedAt(DateTime $isCreated): void
+    public function setUserInformation(?UserInformation $userInformation): self
     {
-        $this->isCreated = $isCreated;
-    }
-
-    public function getOwnerInformation(): ?OwnerInformation
-    {
-        return $this->ownerInformation;
-    }
-
-    public function setOwnerInformation(OwnerInformation $ownerInformation): self
-    {
-        // set the owning side of the relation if necessary
-        if ($ownerInformation->getCompanyInformation() !== $this) {
-            $ownerInformation->setCompanyInformation($this);
+        // unset the owning side of the relation if necessary
+        if ($userInformation === null && $this->userInformation !== null) {
+            $this->userInformation->setCompanyInformation(null);
         }
 
-        $this->ownerInformation = $ownerInformation;
+        // set the owning side of the relation if necessary
+        if ($userInformation !== null && $userInformation->getCompanyInformation() !== $this) {
+            $userInformation->setCompanyInformation($this);
+        }
+
+        $this->userInformation = $userInformation;
 
         return $this;
     }
-
-
 }

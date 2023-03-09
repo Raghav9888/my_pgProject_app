@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Table(name: 'default_company')]
 #[ORM\Index(columns: ['id'], name: 'index_id')]
 #[ORM\Entity(repositoryClass: DefaultCompanyRepository::class)]
-class DefaultCompany extends AbstractCreatedEntity
+class DefaultCompany
 {
     #[ORM\Column(type: 'guid')]
     #[ORM\Id]
@@ -28,9 +28,8 @@ class DefaultCompany extends AbstractCreatedEntity
     #[ORM\Column(nullable: true)]
     private string $companyLogo = 'logo.png';
 
-
     #[ORM\OneToOne(mappedBy: 'defaultCompany', cascade: ['persist', 'remove'])]
-    private ?OwnerInformation $ownerInformation = null;
+    private ?UserInformation $userInformation = null;
 
     public function getId(): ?string
     {
@@ -85,19 +84,20 @@ class DefaultCompany extends AbstractCreatedEntity
         $this->companyLogo = $companyLogo;
     }
 
-    public function getOwnerInformation(): ?OwnerInformation
+
+    public function getUserInformation(): ?UserInformation
     {
-        return $this->ownerInformation;
+        return $this->userInformation;
     }
 
-    public function setOwnerInformation(OwnerInformation $ownerInformation): self
+    public function setUserInformation(UserInformation $userInformation): self
     {
         // set the owning side of the relation if necessary
-        if ($ownerInformation->getDefaultCompany() !== $this) {
-            $ownerInformation->setDefaultCompany($this);
+        if ($userInformation->getDefaultCompany() !== $this) {
+            $userInformation->setDefaultCompany($this);
         }
 
-        $this->ownerInformation = $ownerInformation;
+        $this->userInformation = $userInformation;
 
         return $this;
     }

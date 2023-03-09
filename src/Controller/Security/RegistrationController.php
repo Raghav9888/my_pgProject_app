@@ -2,6 +2,7 @@
 
 namespace App\Controller\Security;
 
+use App\Entity\DefaultCompany;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use App\Security\EmailVerifier;
@@ -36,22 +37,18 @@ class RegistrationController extends AbstractController
         }
 
         $user = new User();
-        if ($registerType == 'company') {
-            $formType = ['ownerInformation' => true];
-        } else {
-            $formType = ['userInformation' => true];
-        }
+        $defaultCompany = new DefaultCompany();
+
+        $formType = ['userInformation' => true];
+
 
         $form = $this->createForm(RegistrationFormType::class, $user, $formType);
         $form->handleRequest($request);
 
         $formData = $form->getData();
+        $userInformation = $form['userInformation']->getData();
 
-        if ($registerType != 'user') {
-            $registerHelper->registerCompany($formData,$registerType ,$user,$request);
-        } else {
-            $registerHelper->registerUser($formData,$registerType,$user ,$request);
-        }
+        $registerHelper->setRegister($formData, $userInformation,$defaultCompany, $registerType, $user, $request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             // encode the plain password

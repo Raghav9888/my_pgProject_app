@@ -13,9 +13,16 @@ class UserInformation extends AbstractNameEntity
     #[ORM\Column(nullable: true)]
     private ?string $setting = null;
 
+    #[ORM\OneToOne(inversedBy: 'userInformation', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?DefaultCompany $defaultCompany = null;
+
+    #[ORM\OneToOne(inversedBy: 'userInformation', cascade: ['persist', 'remove'])]
+    private ?CompanyInformation $companyInformation = null;
 
     #[ORM\OneToOne(mappedBy: 'userInformation', cascade: ['persist', 'remove'])]
     private ?User $user = null;
+
 
     /**
      * @return string|null
@@ -34,20 +41,39 @@ class UserInformation extends AbstractNameEntity
         $this->setting = $setting;
     }
 
+    public function getDefaultCompany(): ?DefaultCompany
+    {
+        return $this->defaultCompany;
+    }
+
+    public function setDefaultCompany(DefaultCompany $defaultCompany): self
+    {
+        $this->defaultCompany = $defaultCompany;
+
+        return $this;
+    }
+
+    public function getCompanyInformation(): ?CompanyInformation
+    {
+        return $this->companyInformation;
+    }
+
+    public function setCompanyInformation(?CompanyInformation $companyInformation): self
+    {
+        $this->companyInformation = $companyInformation;
+
+        return $this;
+    }
+
     public function getUser(): ?User
     {
         return $this->user;
     }
 
-    public function setUser(?User $user): self
+    public function setUser(User $user): self
     {
-        // unset the owning side of the relation if necessary
-        if ($user === null && $this->user !== null) {
-            $this->user->setUserInformation(null);
-        }
-
         // set the owning side of the relation if necessary
-        if ($user !== null && $user->getUserInformation() !== $this) {
+        if ($user->getUserInformation() !== $this) {
             $user->setUserInformation($this);
         }
 

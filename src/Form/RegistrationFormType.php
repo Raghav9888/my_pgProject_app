@@ -18,10 +18,7 @@ class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        if ($options['ownerInformation']) {
-            $builder
-                ->add('ownerInformation', OwnerInformationType::class);
-        }
+
 
         if ($options['userInformation']) {
             $builder
@@ -84,7 +81,6 @@ class RegistrationFormType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'ownerInformation' => false,
             'userInformation' => false,
         ]);
     }
