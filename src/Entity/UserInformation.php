@@ -8,19 +8,18 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'user_information')]
 #[ORM\Index(columns: ['id'], name: 'index_id')]
 #[ORM\Entity(repositoryClass: UserInformationRepository::class)]
-class UserInformation extends AbstractEntity
+class UserInformation extends AbstractNameEntity
 {
     #[ORM\Column(nullable: true)]
     private ?string $setting = null;
 
-    #[ORM\OneToOne(mappedBy: 'userInformation', cascade: ['persist', 'remove'])]
-    private ?USer $uSer = null;
 
     #[ORM\OneToOne(mappedBy: 'userInformation', cascade: ['persist', 'remove'])]
     private ?User $user = null;
 
     /**
      * @return string|null
+     *
      */
     public function getSetting(): ?string
     {

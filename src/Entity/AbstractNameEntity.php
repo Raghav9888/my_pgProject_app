@@ -8,7 +8,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\MappedSuperclass]
 #[ORM\HasLifecycleCallbacks]
-abstract class AbstractEntity
+abstract class AbstractNameEntity extends AbstractCreatedEntity
 {
 
     #[ORM\Column(type: 'guid')]
@@ -24,6 +24,9 @@ abstract class AbstractEntity
 
     #[ORM\Column(nullable: true)]
     private ?string $gender = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $userNumber = null;
 
     #[ORM\Column(nullable: true)]
     private ?string $accountType = null;
@@ -63,6 +66,22 @@ abstract class AbstractEntity
     public function setGender(?string $gender): void
     {
         $this->gender = $gender;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getUserNumber(): ?string
+    {
+        return $this->userNumber;
+    }
+
+    /**
+     * @param string|null $userNumber
+     */
+    public function setUserNumber(?string $userNumber): void
+    {
+        $this->userNumber = $userNumber;
     }
 
     /**
