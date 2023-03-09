@@ -28,8 +28,8 @@ abstract class AbstractNameEntity extends AbstractCreatedEntity
     #[ORM\Column(nullable: true)]
     private ?string $userNumber = null;
 
-    #[ORM\Column(nullable: true)]
-    private ?string $accountType = null;
+    #[ORM\Column]
+    private string $accountType ;
 
     public function getId(): ?string
     {
@@ -85,17 +85,17 @@ abstract class AbstractNameEntity extends AbstractCreatedEntity
     }
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getAccountType(): ?string
+    public function getAccountType(): string
     {
         return $this->accountType;
     }
 
     /**
-     * @param string|null $accountType
+     * @param string $accountType
      */
-    public function setAccountType(?string $accountType): void
+    public function setAccountType(string $accountType): void
     {
         $this->accountType = $accountType;
     }

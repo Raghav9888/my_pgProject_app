@@ -7,8 +7,9 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 #[ORM\Table(name: 'default_company')]
+#[ORM\Index(columns: ['id'], name: 'index_id')]
 #[ORM\Entity(repositoryClass: DefaultCompanyRepository::class)]
-class DefaultCompany
+class DefaultCompany extends AbstractCreatedEntity
 {
     #[ORM\Column(type: 'guid')]
     #[ORM\Id]
@@ -19,10 +20,13 @@ class DefaultCompany
     private ?string $id = null;
 
     #[ORM\Column]
+    private string $accountType;
+
+    #[ORM\Column]
     private string $title = 'Royal Reside';
 
     #[ORM\Column(nullable: true)]
-    private string $companyLogo;
+    private string $companyLogo = 'logo.png';
 
 
     #[ORM\OneToOne(mappedBy: 'defaultCompany', cascade: ['persist', 'remove'])]

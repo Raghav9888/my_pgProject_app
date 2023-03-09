@@ -6,9 +6,9 @@ use App\Repository\CompanyInformationRepository;
 use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Serializer\Annotation\Groups;
-
+#[ORM\Index(columns: ['id'], name: 'index_id')]
 #[ORM\Entity(repositoryClass: CompanyInformationRepository::class)]
-class CompanyInformation
+class CompanyInformation extends AbstractCreatedEntity
 {
     #[ORM\Column(type: 'guid')]
     #[ORM\Id]
@@ -17,6 +17,9 @@ class CompanyInformation
     #[Groups(['read'])]
 
     private ?string $id = null;
+
+    #[ORM\Column]
+    private string $accountType;
 
     #[ORM\Column]
     private string $companyName;
@@ -49,6 +52,22 @@ class CompanyInformation
     public function getId(): ?string
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccountType(): string
+    {
+        return $this->accountType;
+    }
+
+    /**
+     * @param string $accountType
+     */
+    public function setAccountType(string $accountType): void
+    {
+        $this->accountType = $accountType;
     }
 
     /**
@@ -182,7 +201,7 @@ class CompanyInformation
     /**
      * @return DateTime
      */
-    public function getIsCreated(): DateTime
+    public function getIsCreatedAt(): DateTime
     {
         return $this->isCreated;
     }
@@ -190,7 +209,7 @@ class CompanyInformation
     /**
      * @param DateTime $isCreated
      */
-    public function setIsCreated(DateTime $isCreated): void
+    public function setIsCreatedAt(DateTime $isCreated): void
     {
         $this->isCreated = $isCreated;
     }

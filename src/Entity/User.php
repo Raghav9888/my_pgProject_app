@@ -12,7 +12,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'login_user')]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
-class User  implements UserInterface, PasswordAuthenticatedUserInterface
+class User  extends AbstractCreatedEntity implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Column(type: 'guid')]
     #[ORM\Id]
@@ -23,6 +23,9 @@ class User  implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 180, unique: true)]
     private ?string $email = null;
+
+    #[ORM\Column]
+    private string $accountType;
 
     #[ORM\Column(options: ['default' => 0])]
     private bool $isActive = false ;
@@ -70,6 +73,22 @@ class User  implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAccountType(): string
+    {
+        return $this->accountType;
+    }
+
+    /**
+     * @param string $accountType
+     */
+    public function setAccountType(string $accountType): void
+    {
+        $this->accountType = $accountType;
     }
 
     /**
