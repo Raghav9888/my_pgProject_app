@@ -118,9 +118,40 @@
 
 // login register css start
 
+.registerError{
+  color: $red;
+}
+.custom_icon_color_skyblue{
+  color: #3383ff;
+}
+.custom_icon_color_secondary{
+  color: #6c757d;
+}
+
 .input-fields{
   align-items: center;
 }
 // login register css end
+
+// custom button  color css start
+
+.btn-purple{
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #5e2ced;
+  --bs-btn-border-color: #5e2ced;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #5e2ced;
+  --bs-btn-hover-border-color: #5e2ced;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #5e2ced;
+  --bs-btn-active-border-color: #5e2ced;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #5e2ced;
+  --bs-btn-disabled-border-color: #5e2ced;
+}
+
+// custom button  color css end
 
 
