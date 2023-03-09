@@ -28,7 +28,7 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
-    #[Route('/register/{registerType}', name: 'app_register', requirements: ['registerType' => 'user|admin'])]
+    #[Route('/register/{registerType}', name: 'app_register', requirements: ['registerType' => 'user|company'])]
     public function register(Request $request, RegisterHelper $registerHelper, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, SecurityAuthenticator $securityAuthenticator, UserAuthenticatorInterface $userAuthenticator, $registerType, $routeType = 'register'): Response
     {
         if ($this->getUser()) {
@@ -36,7 +36,7 @@ class RegistrationController extends AbstractController
         }
 
         $user = new User();
-        if ($registerType == 'admin') {
+        if ($registerType == 'company') {
             $formType = ['ownerInformation' => true];
         } else {
             $formType = ['userInformation' => true];
@@ -46,10 +46,12 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         $formData = $form->getData();
+        $ownerInformation='';
+        $userInformation = $form['userInformation']->getData();
         if ($registerType != 'user') {
-            $registerHelper->registerCompany($formData, $user,$request);
+            $registerHelper->registerCompany($formData,$ownerInformation ,$user,$request);
         } else {
-            $registerHelper->registerUser($formData, $user ,$request);
+            $registerHelper->registerUser($formData,$userInformation, $user ,$request);
         }
 
         if ($form->isSubmitted() && $form->isValid()) {
