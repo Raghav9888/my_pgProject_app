@@ -29,18 +29,18 @@
                         </div>
 
                         <div class="col-md-6 mt-2">
-                            {{ form_label(registerType == 'admin' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name ) }}
-                            {{ form_widget(registerType == 'admin' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name ) }}
-                            <span class="registerError">{{ form_errors(registerType == 'admin' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name) }}</span>
+                            {{ form_label(registerType == 'company' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name ) }}
+                            {{ form_widget(registerType == 'company' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name ) }}
+                            <span class="registerError">{{ form_errors(registerType == 'company' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name) }}</span>
                         </div>
 
                         <div class="col-md-6 mt-2">
-                            {{ form_label(registerType == 'admin' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender ) }}
-                            {{ form_widget(registerType == 'admin' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender) }}
-                            <span class="registerError">{{ form_errors(registerType == 'admin' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender) }}</span>
+                            {{ form_label(registerType == 'company' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender ) }}
+                            {{ form_widget(registerType == 'company' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender) }}
+                            <span class="registerError">{{ form_errors(registerType == 'company' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender) }}</span>
                         </div>
 
-                        {% if registerType == 'admin' %}
+                        {% if registerType == 'company' %}
                             {{ include('form/registerCompanyForm.html.twig') }}
                         {% endif %}
                         <div class="col-md-6 mt-2">
