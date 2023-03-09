@@ -18,7 +18,7 @@ class BaseController extends AbstractController
         ]);
     }
 
-    #[Route(path: '/{routeType}', name: 'app_home', requirements: ['routeType' => 'home|about|contactus'])]
+    #[Route(path: '/{routeType}', name: 'app_home', requirements: ['routeType' => 'home|about|contact'])]
     public function home(Request $request, $routeType): Response
     {
 
