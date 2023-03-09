@@ -5,6 +5,6 @@ class Session
 {
     public function session($user, $request):void
     {
-        dd($user);
+
     }
 }

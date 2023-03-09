@@ -1,0 +1,55 @@
+<div class="col-md-6 mt-2">
+    {{ form_label( registrationForm.ownerInformation.userNumber ) }}
+    {{ form_widget(registrationForm.ownerInformation.userNumber) }}
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.userNumber) }}</span>
+</div>
+<div class="col-md-6 mt-2">
+    {{ form_label(registrationForm.ownerInformation.companyInformation.companyName) }}
+    {{ form_widget(registrationForm.ownerInformation.companyInformation.companyName) }}
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.companyInformation.companyName) }}</span>
+</div>
+
+<div class="col-6 mt-2">
+    {{ form_label(registrationForm.ownerInformation.companyInformation.duplicateNumber) }}
+    <div class="d-flex">
+        <div class="form-check form-switch mt-2">
+            {{ form_widget(registrationForm.ownerInformation.companyInformation.duplicateNumber , {'attr':{ 'class':'form-check-input'}}) }}
+            <span class="px-1" data-toggle="tooltip" data-bs-placement="top"
+                  data-bs-custom-class="custom-primary-tooltip" data-bs-title="Duplicate  Number (owner Number to company Number) ">
+                                        <i class="fa-solid fa-circle-info custom_icon_color_skyblue"></i>
+                                    </span>
+        </div>
+        {{ form_widget(registrationForm.ownerInformation.companyInformation.companyNumber) }}
+    </div>
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.companyInformation.companyNumber) }}</span>
+</div>
+
+<div class="col-md-6 mt-2">
+    {{ form_label(registrationForm.ownerInformation.companyInformation.companyType) }}
+    {{ form_widget(registrationForm.ownerInformation.companyInformation.companyType) }}
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.companyInformation.companyType) }}</span>
+</div>
+
+<div class="col-md-6 mt-2">
+    {{ form_label(registrationForm.ownerInformation.companyInformation.companyLogo) }}
+    {{ form_widget(registrationForm.ownerInformation.companyInformation.companyLogo) }}
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.companyInformation.companyLogo) }}</span>
+</div>
+
+<div class="col-md-6 mt-2">
+    {{ form_label(registrationForm.ownerInformation.companyInformation.city) }}
+    {{ form_widget(registrationForm.ownerInformation.companyInformation.city) }}
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.companyInformation.city) }}</span>
+</div>
+
+<div class="col-md-6 mt-2">
+    {{ form_label(registrationForm.ownerInformation.companyInformation.states) }}
+    {{ form_widget(registrationForm.ownerInformation.companyInformation.states) }}
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.companyInformation.states) }}</span>
+</div>
+
+<div class="col-md-6 mt-2">
+    {{ form_label(registrationForm.ownerInformation.companyInformation.country) }}
+    {{ form_widget(registrationForm.ownerInformation.companyInformation.country) }}
+    <span class="registerError">{{ form_errors(registrationForm.ownerInformation.companyInformation.country) }}</span>
+</div>

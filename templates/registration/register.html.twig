@@ -1,19 +1,86 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
-
-    <h1>Register</h1>
-
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.password, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    <div class="container-fluid">
+        <div class="container">
 
-        <button type="submit" class="btn btn-success">Register</button>
+            <div class="row input-fields">
+
+                <div class="col-md-7 ">
+                    {{ include('carousel/register_login_carousel.html.twig') }}
+                </div>
+
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-12  text-center">
+                            <h1 class="text-center pageTitle d-inline-block color_text_h1">
+                                Register {{ registerType != 'user' ? 'Company' : 'User' }}</h1>
+                        </div>
+
+                        <div class="col-md-12 mt-2">
+                            {{ form_label(registrationForm.email) }}
+                            {{ form_widget(registrationForm.email) }}
+                            <span class="registerError">{{ form_errors(registrationForm.email) }}</span>
+                        </div>
+
+                        <div class="col-md-6 mt-2">
+                            {{ form_label(registerType == 'admin' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name ) }}
+                            {{ form_widget(registerType == 'admin' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name ) }}
+                            <span class="registerError">{{ form_errors(registerType == 'admin' ? registrationForm.ownerInformation.name : registrationForm.userInformation.name) }}</span>
+                        </div>
+
+                        <div class="col-md-6 mt-2">
+                            {{ form_label(registerType == 'admin' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender ) }}
+                            {{ form_widget(registerType == 'admin' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender) }}
+                            <span class="registerError">{{ form_errors(registerType == 'admin' ? registrationForm.ownerInformation.gender : registrationForm.userInformation.gender) }}</span>
+                        </div>
+
+                        {% if registerType == 'admin' %}
+                            {{ include('form/registerCompanyForm.html.twig') }}
+                        {% endif %}
+                        <div class="col-md-6 mt-2">
+                            {{ form_label(registrationForm.password.first) }}
+                            <div class="input-group">
+                                {{ form_widget(registrationForm.password.first) }}
+                                <span class="input-group-text" id="passwordFirstEye"><i
+                                            class="fa-solid fa-eye-slash"></i></span>
+                            </div>
+                            <span class="registerError">{{ form_errors(registrationForm.password.first) }}</span>
+                        </div>
+
+                        <div class="col-md-6 mt-2">
+                            {{ form_label(registrationForm.password.second) }}
+                            <div class="input-group">
+                                {{ form_widget(registrationForm.password.second) }}
+                                <span class="input-group-text" id="passwordSecondEye"><i
+                                            class="fa-solid fa-eye-slash"></i></span>
+                            </div>
+                            <span class="registerError">{{ form_errors(registrationForm.password.second) }}</span>
+                        </div>
+
+                        <div class="col-6 mt-2">
+                            <div class="form-check form-switch ">
+                                {{ form_row(registrationForm.agreeTerms , {'attr':{ 'class':'form-check-input'  }}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-success mt-3">Register</button>
+                    </div>
+                    <div class="col-12 mt-4 text-center">
+                    <span>
+                     Already have an account ?<a href="{{ path('app_login') }}"> Login</a>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     {{ form_end(registrationForm) }}
+
 {% endblock %}

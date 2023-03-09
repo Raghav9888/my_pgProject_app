@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'owner_information')]
 #[ORM\Index(columns: ['id'], name: 'index_id')]
 #[ORM\Entity(repositoryClass: OwnerInformationRepository::class)]
-class OwnerInformation extends AbstractEntity
+class OwnerInformation extends AbstractNameEntity
 {
 
     #[ORM\OneToOne(mappedBy: 'ownerInformation', cascade: ['persist', 'remove'])]

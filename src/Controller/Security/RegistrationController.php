@@ -27,11 +27,21 @@ class RegistrationController extends AbstractController
         $this->emailVerifier = $emailVerifier;
     }
 
-    #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager,SecurityAuthenticator $securityAuthenticator,UserAuthenticatorInterface $userAuthenticator,$routeType='register'): Response
+    #[Route('/register/{registerType}', name: 'app_register', requirements: ['registerType' => 'user|admin'])]
+    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager, SecurityAuthenticator $securityAuthenticator, UserAuthenticatorInterface $userAuthenticator, $registerType, $routeType = 'register'): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_home',['routeType' => 'home']);
+        }
+
         $user = new User();
-        $form = $this->createForm(RegistrationFormType::class, $user);
+        if ($registerType == 'admin') {
+            $formType = ['ownerInformation' => true];
+        } else {
+            $formType = ['userInformation' => true];
+        }
+
+        $form = $this->createForm(RegistrationFormType::class, $user, $formType);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -62,7 +72,9 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
-            'site_meta_title_name' => $routeType
+            'site_meta_title_name' => $routeType,
+            'routeType' => $routeType,
+            'registerType' => $registerType,
         ]);
     }
 

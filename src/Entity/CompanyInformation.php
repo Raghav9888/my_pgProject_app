@@ -42,8 +42,6 @@ class CompanyInformation
     #[ORM\Column]
     private string  $country = 'IN';
 
-    #[ORM\Column(type: 'datetime')]
-    private DateTime $isCreated ;
 
     #[ORM\OneToOne(mappedBy: 'companyInformation', cascade: ['persist', 'remove'])]
     private ?OwnerInformation $ownerInformation = null;
