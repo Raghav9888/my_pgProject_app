@@ -20,16 +20,16 @@ abstract class AbstractNameEntity extends AbstractCreatedEntity
     private ?string $id = null;
 
     #[ORM\Column(nullable: true)]
-    private ?string $name = null;
+    protected ?string $name = null;
 
     #[ORM\Column(nullable: true)]
-    private ?string $gender = null;
+    protected ?string $gender = null;
 
     #[ORM\Column(nullable: true)]
-    private ?string $userNumber = null;
+    protected ?string $userNumber = null;
 
     #[ORM\Column]
-    private string $accountType ;
+    protected string $accountType ;
 
     public function getId(): ?string
     {

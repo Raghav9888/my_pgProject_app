@@ -11,15 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
 abstract class AbstractCreatedEntity
 {
     #[ORM\Column(type: 'boolean' ,options: ['default' => 0] )]
-    private  bool $isDeleted = false;
+    protected  bool $isDeleted = false;
     #[ORM\Column(type: 'datetime')]
-    private DateTime $isCreatedAt;
+    protected DateTime $isCreatedAt;
 
     #[ORM\Column(type: 'datetime' , nullable: true)]
-    private DateTime $isUpdatedAt ;
+    protected DateTime $isUpdatedAt ;
 
     #[ORM\Column(type: 'datetime' , nullable: true)]
-    private DateTime $isDeletedAt ;
+    protected DateTime $isDeletedAt ;
 
     /**
      * @return bool

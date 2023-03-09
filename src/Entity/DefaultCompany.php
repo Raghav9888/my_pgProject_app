@@ -40,6 +40,22 @@ class DefaultCompany extends AbstractCreatedEntity
     /**
      * @return string
      */
+    public function getAccountType(): string
+    {
+        return $this->accountType;
+    }
+
+    /**
+     * @param string $accountType
+     */
+    public function setAccountType(string $accountType): void
+    {
+        $this->accountType = $accountType;
+    }
+
+    /**
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->title;
